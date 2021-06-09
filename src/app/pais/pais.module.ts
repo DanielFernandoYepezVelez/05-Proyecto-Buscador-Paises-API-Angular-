@@ -8,13 +8,17 @@ import { VerComponent } from './pages/ver/ver.component';
 import { PaisComponent } from './pages/pais/pais.component';
 import { RegionComponent } from './pages/region/region.component';
 import { CapitalComponent } from './pages/capital/capital.component';
+import { TableComponent } from './components/table/table.component';
+import { InputComponent } from './components/input/input.component';
 
 @NgModule({
   declarations: [
     CapitalComponent,
     PaisComponent,
     RegionComponent,
-    VerComponent
+    VerComponent,
+    TableComponent,
+    InputComponent
   ],
   imports: [
     CommonModule,
