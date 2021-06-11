@@ -14,24 +14,31 @@ export class PaisService {
 
   constructor(private http: HttpClient) { }
 
-  buscarPais(termino: string): Observable<Country[]> {
+  public buscarPais(termino: string): Observable<Country[]> {
 
     const url = `${this._API_URL}/name/${termino}`;
     return this.http.get<Country[]>(url);
    
   }
 
-  buscarCapital(termino: string): Observable<Country[]> {
+  public buscarCapital(termino: string): Observable<Country[]> {
 
     const url = `${this._API_URL}/capital/${termino}`;
     return this.http.get<Country[]>(url);
    
   }
   
-  getPaisAlpha(codigo: string): Observable<Country> {
+  public getPaisAlpha(codigo: string): Observable<Country> {
 
     const url = `${this._API_URL}/alpha/${codigo}`;
     return this.http.get<Country>(url);
    
+  }
+
+  public buscarRegion(region: string): Observable<Country[]> {
+    
+    const url = `${this._API_URL}/region/${region}`;
+    return this.http.get<Country[]>(url);
+
   }
 }
