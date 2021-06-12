@@ -1,43 +1,45 @@
-<h3>Buscar Por Región <small> "{{ regionActiva | titlecase}}" </small></h3>
-<hr>
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h3>Buscar Por Región <small> "{{ regionActiva | titlecase}}" </small></h3>
+    <hr>
 
-<h5>Seleccione La Región</h5>
+    <h5>Seleccione La Región</h5>
 
-<div class="row">
-    <div class="col">
+    <div class="row">
+        <div class="col">
 
-        <!-- ========== [ngClass] - [class] - [class.nombreClase] ========== -->
-        <!-- La Lógica En Los Componentes Debe Ser Lo más Simple Posible -->
+            <!-- ========== [ngClass] - [class] - [class.nombreClase] ========== -->
+            <!-- La Lógica En Los Componentes Debe Ser Lo más Simple Posible -->
 
-        <!-- Esta Clase Me Funciona Como Un Tipo Booleano, Por Que Si La Condición Se Cumple,
-        Al Elemento Se Le Agrega La Clase Definida Dentro De Los Corchetes -->
-        <!-- [class.btn-primary]="region === regionActiva" -->
+            <!-- Esta Clase Me Funciona Como Un Tipo Booleano, Por Que Si La Condición Se Cumple,
+            Al Elemento Se Le Agrega La Clase Definida Dentro De Los Corchetes -->
+            <!-- [class.btn-primary]="region === regionActiva" -->
 
-        <!-- Otra Forma Es Con El [ngClass] -->
-        <!-- 
-        [ngClass]="{
-            'clases de css': true
-            'clases de css': true
-            'clases de css': true
-        }"
+            <!-- Otra Forma Es Con El [ngClass] -->
+            <!-- 
+            [ngClass]="{
+                'clases de css': true
+                'clases de css': true
+                'clases de css': true
+            }"
+    
+            [ngClass]="{
+                'btn-primary': regionActiva === region, 
+                'btn-outline-primary': regionActiva !== region
+            }"
+            -->
 
-        [ngClass]="{
-            'btn-primary': regionActiva === region, 
-            'btn-outline-primary': regionActiva !== region
-        }"
-        -->
+            <!-- Otra Opción Con El Operador Ternario (Es Un Poco Más Eficiente) -->
+            <!-- [class]="Expresión De JavaScript Y/O TypeScript" -->
+            <!-- [class]="(region === regionActiva) ? 'btn btn-primary' : 'btn-outline-primary'" -->
 
-        <!-- Otra Opción Con El Operador Ternario (Es Un Poco Más Eficiente) -->
-        <!-- [class]="Expresión De JavaScript Y/O TypeScript" -->
-        <!-- [class]="(region === regionActiva) ? 'btn btn-primary' : 'btn-outline-primary'" -->
+            <!-- Otra Opción Y La Ultima Es Crear Un Método O Una Propiedad get Desde TypeScript,
+                 Para Que Se Encarge De Manejar El Operador Ternario -->
+            <!-- [class]="getClaseCSS(region)" -->
 
-        <!-- Otra Opción Y La Ultima Es Crear Un Método O Una Propiedad get Desde TypeScript,
-             Para Que Se Encarge De Manejar El Operador Ternario -->
-        <!-- [class]="getClaseCSS(region)" -->
-
-        <button *ngFor="let region of regiones" [class]="getClaseCSS(region)" (click)="activarRegion(region)">
-            {{ region | titlecase }}
-        </button>
+            <button *ngFor="let region of regiones" [class]="getClaseCSS(region)" (click)="activarRegion(region)">
+                {{ region | titlecase }}
+            </button>
+        </div>
     </div>
 </div>
 
